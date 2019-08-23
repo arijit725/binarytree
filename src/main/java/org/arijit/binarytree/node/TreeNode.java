@@ -2,14 +2,21 @@ package org.arijit.binarytree.node;
 
 public class TreeNode<T extends Object> {
 
-	T value;
-	TreeNode<T> leftChild;
-	TreeNode<T> rightChild;
+	private T value;
+	private TreeNode<T> leftChild;
+	private TreeNode<T> rightChild;
+	private int horizontalDistance;
 	
 	private TreeNode(T value) {
 		this.value = value;
 	}
 	
+	public int getHorizontalDistance() {
+		return horizontalDistance;
+	}
+	public void setHorizontalDistance(int horizontalDistance) {
+		this.horizontalDistance = horizontalDistance;
+	}
 	public TreeNode<T> getLeftChild() {
 		return leftChild;
 	}
