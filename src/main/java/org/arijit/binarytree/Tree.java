@@ -133,4 +133,9 @@ public class Tree {
 		System.out.println("Vertical Order Traversal: " + horizontalMap);
 
 	}
+	
+	public TreeNode<Object> getRoot() {
+		TreeNode<Object> tmpRoot = root;
+		return tmpRoot;
+	}
 }
