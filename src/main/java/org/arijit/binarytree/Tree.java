@@ -134,8 +134,36 @@ public class Tree {
 
 	}
 	
+	/**
+	 * Density of Binary Tree = Size / Height 
+	 */
+	public void density() {
+		TreeNode<Object> tmpRoot = root;
+		LinkedList<TreeNode<Object>> q = new LinkedList<TreeNode<Object>>();
+		q.add(tmpRoot);
+		int nodeCount = q.size();
+		int totalNode = nodeCount;
+		int height = 1;
+		while(!q.isEmpty()) {
+			if(nodeCount ==0) {
+				nodeCount = q.size();
+				totalNode = totalNode+nodeCount;
+				height++;				
+			}
+			tmpRoot = q.poll();
+			if(tmpRoot.getLeftChild()!=null)
+				q.add(tmpRoot.getLeftChild());
+			if(tmpRoot.getRightChild()!=null)
+				q.add(tmpRoot.getRightChild());
+			nodeCount--;
+		}
+		float density =(float) totalNode/height;
+		System.out.println("TotalNode: "+totalNode+" height: "+height+" density: "+density);
+	}
+	
 	public TreeNode<Object> getRoot() {
 		TreeNode<Object> tmpRoot = root;
 		return tmpRoot;
 	}
+	
 }

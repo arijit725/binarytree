@@ -15,8 +15,18 @@ public class TestBinaryTree {
 		bottomView();
 		
 		verticalView();
+		
+		density();
 	}
-	
+	private static void density() {
+		TreeNode<Object> root = TreeNode.create(1);
+		TreeNode<Object> node1 = TreeNode.create(2);
+		TreeNode<Object> node2 = TreeNode.create(3);
+		root.setLeftChild(node1);
+		root.setRightChild(node2);
+		Tree tree = Tree.create(root);
+		tree.density();
+	}
 	private static void verticalView() {
 		TreeNode<Object> root = TreeNode.create(1);
 		TreeNode<Object> node1 = TreeNode.create(2);

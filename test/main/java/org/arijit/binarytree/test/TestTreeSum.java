@@ -8,8 +8,30 @@ public class TestTreeSum {
 
 	public static void main(String args[]) {
 //		maxPathSum();
-		maxSumSubtree();
+//		maxSumSubtree();
+		subTreeWithSum();
 	}
+	
+	public static void subTreeWithSum() {
+		TreeNode<Object> root = TreeNode.create(5);
+		TreeNode<Object> left1 = TreeNode.create(-10);
+		TreeNode<Object> right1 = TreeNode.create(3);
+		root.setLeftChild(left1);
+		root.setRightChild(right1);
+		TreeNode<Object> left11 = TreeNode.create(9);
+		TreeNode<Object> right11 = TreeNode.create(8);
+		left1.setLeftChild(left11);
+		left1.setRightChild(right11);
+		
+		TreeNode<Object> left12 = TreeNode.create(4);
+		TreeNode<Object> right12 = TreeNode.create(7);
+		right1.setLeftChild(left12);
+		right1.setRightChild(right12);
+		
+		Tree tree = Tree.create(root);
+		TreeSum.getInstance().findSubtreeSum(tree, 7);
+	}
+	
 	public static void maxSumSubtree() {
 		TreeNode<Object> root =  TreeNode.create(1);
 		TreeNode<Object> l11 = TreeNode.create(-2);
