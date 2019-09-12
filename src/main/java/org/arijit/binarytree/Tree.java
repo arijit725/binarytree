@@ -171,6 +171,7 @@ public class Tree {
 		LinkedList<TreeNode<Object>> q = new LinkedList<TreeNode<Object>>();
 		HashMap<Object, Object> childParentMap = new HashMap<Object, Object>();
 		HashMap<Object, List<Object>> allParentChildMap = new HashMap<Object, List<Object>>();
+		allParentChildMap.put(tmpRoot,new ArrayList<Object>());
 		q.push(tmpRoot);
 		while(!q.isEmpty()) {
 			tmpRoot = q.poll();
