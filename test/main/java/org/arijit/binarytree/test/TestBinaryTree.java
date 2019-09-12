@@ -9,14 +9,43 @@ import org.arijit.binarytree.util.ConstructUtil;
 public class TestBinaryTree {
 
 	public static void main(String args[]) {
-		constructWithInOrderPreOrder();
-		constructWithInOrderLevelOrder();
+//		constructWithInOrderPreOrder();
+//		constructWithInOrderLevelOrder();
+//		
+//		bottomView();
+//		
+//		verticalView();
+//		
+//		density();
 		
-		bottomView();
+		parentChildMap();
+	}
+	
+	private static void parentChildMap() {
+		TreeNode<Object> root = TreeNode.create(1);
+		TreeNode<Object> l11 = TreeNode.create(2);
+		TreeNode<Object> r11 = TreeNode.create(3);
+		root.setLeftChild(l11);
+		root.setRightChild(r11);
+		TreeNode<Object> l21 = TreeNode.create(4);
+		TreeNode<Object> r21 = TreeNode.create(5);
+		l11.setLeftChild(l21);
+		l11.setRightChild(r21);
+		TreeNode<Object> l22 = TreeNode.create(6);
+		TreeNode<Object> r22 = TreeNode.create(7);
+		r11.setLeftChild(l22);
+		r11.setLeftChild(r22);
+		TreeNode<Object> r31 = TreeNode.create(8);
+		r21.setRightChild(r31);
+		Tree tree = Tree.create(root);
+		System.out.println("Approach 1: ");
+		tree.childParent();
+		System.out.println("Approach 2: ");
+		tree.childParent1();
+		System.out.println("Approach 3: ");
+		tree.childParentIterative();
+	
 		
-		verticalView();
-		
-		density();
 	}
 	private static void density() {
 		TreeNode<Object> root = TreeNode.create(1);
