@@ -2,16 +2,55 @@ package org.arijit.binarytree.test;
 
 import org.arijit.binarytree.Tree;
 import org.arijit.binarytree.node.TreeNode;
+import org.arijit.binarytree.treesum.MaxPathsumBetweenTwoLeaves;
+import org.arijit.binarytree.treesum.SubtreeWithMaxSum;
 import org.arijit.binarytree.treesum.TreeSum;
 
 public class TestTreeSum {
 
 	public static void main(String args[]) {
 //		maxPathSum();
-//		maxSumSubtree();
-		subTreeWithSum();
+		maxSumSubtree();
+//		subTreeWithSum();
+//		pathSumBetweenTwoNode();
 	}
 	
+	public static void pathSumBetweenTwoNode() {
+		TreeNode<Object> root = TreeNode.create(-15);
+		TreeNode<Object> l1 = TreeNode.create(5);
+		TreeNode<Object> r1 = TreeNode.create(6);
+		root.setLeftChild(l1);
+		root.setRightChild(r1);
+		
+		TreeNode<Object> l2 = TreeNode.create(-8);
+		TreeNode<Object> r2 = TreeNode.create(1);
+		l1.setLeftChild(l2);
+		l1.setRightChild(r2);
+		
+		TreeNode<Object> l3 = TreeNode.create(2);
+		TreeNode<Object> r3 = TreeNode.create(6);		
+		l2.setLeftChild(l3);
+		l2.setRightChild(r3);
+		
+		TreeNode<Object> l4 = TreeNode.create(3);
+		TreeNode<Object> r4 = TreeNode.create(9);
+		r3.setLeftChild(l4);
+		r3.setRightChild(r4);
+		
+		TreeNode<Object> r5 = TreeNode.create(0);
+		r4.setRightChild(r5);
+		
+		TreeNode<Object> l6 = TreeNode.create(4);
+		TreeNode<Object> r6 = TreeNode.create(-1);
+		r5.setLeftChild(l6);
+		r5.setRightChild(r6);
+		
+		TreeNode<Object> l7 = TreeNode.create(10);
+		r6.setLeftChild(l7);
+		Tree tree = Tree.create(root);
+		
+		MaxPathsumBetweenTwoLeaves.getInstance().findMaxPathSum(tree);
+	}
 	public static void subTreeWithSum() {
 		TreeNode<Object> root = TreeNode.create(5);
 		TreeNode<Object> left1 = TreeNode.create(-10);
@@ -48,7 +87,7 @@ public class TestTreeSum {
 		l12.setRightChild(l24);
 		
 		Tree tree=Tree.create(root);
-		TreeSum.getInstance().subTreeMaxSum(tree);
+		SubtreeWithMaxSum.getInstance().subTreeMaxSum(tree);
 	}
 	public static void maxPathSum() {
 		TreeNode<Object> root = TreeNode.create(10);

@@ -53,27 +53,7 @@ public class TreeSum {
 		return maxSinglePathSum;
 	}
 
-	/**
-	 * Find largest subtree sum in a tree Given a binary tree, task is to find
-	 * subtree with maximum sum in tree.
-	 * 
-	 * @param tree
-	 */
-	public void subTreeMaxSum(Tree tree) {
-		int ans[] = new int[1];
-		TreeNode<Object> root = tree.getRoot();
-		subtreeMaxSum(root, ans);
-		System.out.println("MaxSum Subtree: " + ans[0]);
-	}
-
-	private int subtreeMaxSum(TreeNode<Object> root, int[] ans) {
-		if (root == null)
-			return 0;
-		int sum = (int) root.getValue() + subtreeMaxSum(root.getLeftChild(), ans)
-				+ subtreeMaxSum(root.getRightChild(), ans);
-		ans[0] = Math.max(sum, ans[0]);
-		return sum;
-	}
+	
 
 	public void findSubtreeSum(Tree tree, int X) {
 		TreeNode<Object> tmpRoot = tree.getRoot();
