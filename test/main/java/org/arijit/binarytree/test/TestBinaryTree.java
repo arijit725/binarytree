@@ -3,6 +3,7 @@ package org.arijit.binarytree.test;
 
 import org.arijit.binarytree.Tree;
 import org.arijit.binarytree.node.TreeNode;
+import org.arijit.binarytree.traversal.TreeTraversal;
 import org.arijit.binarytree.util.ConstructUtil;
 
 
@@ -18,7 +19,34 @@ public class TestBinaryTree {
 //		
 //		density();
 		
-		parentChildMap();
+//		parentChildMap();
+		
+		diagonalTraversalTest();
+	}
+	
+	private static void diagonalTraversalTest() {
+		TreeNode<Object> root = TreeNode.create(8);
+		TreeNode<Object> l11 = TreeNode.create(3);
+		TreeNode<Object> r11 = TreeNode.create(10);
+		root.setLeftChild(l11);
+		root.setRightChild(r11);
+		TreeNode<Object> l12 = TreeNode.create(1);
+		l11.setLeftChild(l12);
+		TreeNode<Object> r1l1 = TreeNode.create(6);
+		TreeNode<Object> r1r1 = TreeNode.create(14);
+		r11.setLeftChild(r1l1);
+		r11.setRightChild(r1r1);
+		TreeNode<Object> r1l2 = TreeNode.create(4);
+		TreeNode<Object> r1r2 = TreeNode.create(7);
+		r1l1.setLeftChild(r1l2);
+		r1l1.setRightChild(r1r2);
+		TreeNode<Object> r1r3 = TreeNode.create(13);
+		r1r1.setLeftChild(r1r3);
+		
+		Tree tree = Tree.create(root);
+		TreeTraversal.getInstance().diagonalTraversalRecr(tree);
+		
+		
 	}
 	
 	private static void parentChildMap() {
