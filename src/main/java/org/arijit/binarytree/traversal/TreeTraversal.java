@@ -187,4 +187,25 @@ public class TreeTraversal {
 	public static TreeTraversal getInstance() {
 		return instance;
 	}
+
+	public void diagonalTraversalRecr(Tree tree) {
+		TreeNode<Object> root = tree.getRoot();
+		LinkedList<TreeNode<Object>> q = new LinkedList<TreeNode<Object>>();
+		diagonalTraversalRecr(root, q);
+	}
+
+	private void diagonalTraversalRecr(TreeNode<Object> root, LinkedList<TreeNode<Object>> q) {
+		if (root == null)
+			return;
+		System.out.print(root.getValue() + " ");
+		if (root.getLeftChild() != null) {
+			q.add(root.getLeftChild());
+		}
+		if (root.getRightChild() != null) {
+			diagonalTraversalRecr(root.getRightChild(), q);
+		}
+		System.out.println();
+		root = q.poll();
+		diagonalTraversalRecr(root, q);
+	}
 }
